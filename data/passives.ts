@@ -1,8 +1,10 @@
 import { Passive, PassiveType } from '@/types/passive';
 
 // Helper function to get passive image URL
+// For GitHub Pages deployment, we need to include the base path
 function getPassiveImageUrl(passiveId: string): string {
-  return `/passives/${passiveId}.png`;
+  const basePath = process.env.NODE_ENV === 'production' ? '/BallXPitWebHelper' : '';
+  return `${basePath}/passives/${passiveId}.png`;
 }
 
 // Base passives that CAN evolve (ingredients for evolved passives) - listed first

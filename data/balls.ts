@@ -1,8 +1,10 @@
 import { Ball, BallType, BallCategory } from '@/types/ball';
 
 // Helper function to get ball image URL
+// For GitHub Pages deployment, we need to include the base path
 function getBallImageUrl(ballId: string): string {
-  return `/balls/${ballId}.png`;
+  const basePath = process.env.NODE_ENV === 'production' ? '/BallXPitWebHelper' : '';
+  return `${basePath}/balls/${ballId}.png`;
 }
 
 export const baseBalls: Ball[] = [
