@@ -24,9 +24,13 @@ const nodeTypes = {
   passiveNode: PassiveNode,
 };
 
-export function PassiveEvolution() {
+interface PassiveEvolutionProps {
+  ownedPassiveIds: Set<string>;
+  setOwnedPassiveIds: React.Dispatch<React.SetStateAction<Set<string>>>;
+}
+
+export function PassiveEvolution({ ownedPassiveIds, setOwnedPassiveIds }: PassiveEvolutionProps) {
   const [selectedPassive, setSelectedPassive] = useState<Passive | null>(null);
-  const [ownedPassiveIds, setOwnedPassiveIds] = useState<Set<string>>(new Set());
 
   // Toggle passive ownership
   const togglePassiveOwnership = useCallback((passiveId: string) => {
@@ -39,29 +43,23 @@ export function PassiveEvolution() {
       }
       return next;
     });
-  }, []);
-
-  // Reset all selections
-  const handleReset = useCallback(() => {
-    setOwnedPassiveIds(new Set());
-    setSelectedPassive(null);
-  }, []);
+  }, [setOwnedPassiveIds]);
 
   // Evolve a passive (consume ingredients, gain evolved passive)
   const handleEvolve = useCallback((passive: Passive) => {
     const recipes = getAllPassiveRecipes(passive);
     if (recipes.length === 0) return;
-    
+
     setOwnedPassiveIds(prev => {
       const next = new Set(prev);
-      
+
       // Find the first recipe where all ingredients are owned
-      const completeRecipe = recipes.find(recipe => 
+      const completeRecipe = recipes.find(recipe =>
         recipe.every(id => prev.has(id))
       );
-      
+
       if (!completeRecipe) return prev;
-      
+
       // Remove all ingredients from the complete recipe
       completeRecipe.forEach(ingredientId => {
         next.delete(ingredientId);
@@ -70,7 +68,7 @@ export function PassiveEvolution() {
       next.add(passive.id);
       return next;
     });
-  }, []);
+  }, [setOwnedPassiveIds]);
 
   // Get the "relevant" passives for edge filtering
   const relevantPassives = useMemo(
@@ -109,22 +107,9 @@ export function PassiveEvolution() {
   }, [nodesWithCallback, initialEdges, setNodes, setEdges]);
 
   return (
-    <div className="w-full h-full relative">
-      {/* Header Controls */}
-      <div className="absolute top-4 left-4 z-10 flex gap-2 items-center">
-        <button
-          onClick={handleReset}
-          className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition-colors"
-        >
-          Reset All
-        </button>
-        <div className="px-4 py-2 bg-gray-800 text-white rounded-lg text-sm">
-          Owned: <span className="font-semibold text-green-400">{ownedPassiveIds.size}</span>
-        </div>
-      </div>
-
+    <div className="w-full h-full bg-gray-950 relative">
       {/* React Flow Canvas */}
-      <div className="w-full h-full bg-gray-950">
+      <div className="w-full h-full">
         <ReactFlow
           nodes={nodes}
           edges={edges}
@@ -149,30 +134,47 @@ export function PassiveEvolution() {
         ownedPassiveIds={ownedPassiveIds}
       />
 
-      {/* Legend */}
-      <div className="absolute bottom-4 left-4 bg-gray-900/95 border border-gray-700 rounded p-4 z-10">
-        <h3 className="text-sm font-semibold text-white mb-2">Legend</h3>
-        <div className="space-y-2 text-xs text-gray-300">
-          <div className="flex items-center gap-2">
-            <div className="w-4 h-4 rounded bg-green-500 flex items-center justify-center text-white text-xs">✓</div>
-            <span>Owned Passive</span>
+      {/* Legend - Enhanced Visibility */}
+      <div className="absolute bottom-6 left-6 bg-gray-900/98 border-3 border-purple-500/70 rounded-lg p-5 z-10 shadow-2xl backdrop-blur-sm">
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center">
+            <span className="text-purple-400 text-lg">ℹ️</span>
           </div>
-          <div className="flex items-center gap-2">
-            <div className="w-4 h-4 rounded bg-green-500 flex items-center justify-center text-white text-xs">⬆</div>
-            <span>Ready to Evolve (click to evolve)</span>
+          <h3 className="text-base font-bold text-white">Legend</h3>
+        </div>
+        <div className="space-y-2.5 text-sm text-gray-200">
+          <div className="flex items-center gap-3">
+            <div className="w-5 h-5 rounded bg-green-500 flex items-center justify-center text-white text-xs font-bold shadow-lg">✓</div>
+            <span className="font-medium">Owned Passive</span>
           </div>
-          <div className="flex items-center gap-2">
-            <div className="w-4 h-4 rounded bg-pink-500 flex items-center justify-center text-white text-xs">+</div>
-            <span>Candidate Partner</span>
+          <div className="flex items-center gap-3">
+            <div className="w-5 h-5 rounded bg-green-500 flex items-center justify-center text-white text-xs font-bold shadow-lg animate-bounce">⬆</div>
+            <span className="font-medium">Ready to Evolve (click to evolve)</span>
           </div>
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-0.5 bg-green-500"></div>
-            <span>Complete Path</span>
+          <div className="flex items-center gap-3">
+            <div className="w-5 h-5 rounded bg-gray-700 border-2 candidate-partner-glow shadow-lg"></div>
+            <span className="font-medium">Candidate Partner (can evolve with owned)</span>
           </div>
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-0.5 bg-gray-500" style={{ backgroundImage: 'repeating-linear-gradient(90deg, #6b7280 0, #6b7280 4px, transparent 4px, transparent 8px)' }}></div>
-            <span>Partial Path</span>
+          <div className="flex items-center gap-3">
+            <div className="w-5 h-5 rounded bg-purple-500/30 border-2 border-purple-400 shadow-lg"></div>
+            <span className="font-medium">Available Evolution</span>
           </div>
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-1 bg-green-400 rounded shadow-lg"></div>
+            <span className="font-medium">Complete Path (all ingredients owned)</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-1 border-t-2 border-dashed border-gray-300 rounded"></div>
+            <span className="font-medium">Partial Path (missing ingredients)</span>
+          </div>
+        </div>
+        <div className="mt-4 pt-4 border-t-2 border-gray-700/50 text-sm text-gray-300 space-y-1">
+          <p className="flex items-center gap-2">
+            <span className="text-purple-400">→</span> Click passives to toggle ownership
+          </p>
+          <p className="flex items-center gap-2">
+            <span className="text-purple-400">→</span> Click 'i' for details
+          </p>
         </div>
       </div>
     </div>
