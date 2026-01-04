@@ -3,10 +3,13 @@
 import React, { useState } from 'react';
 import { BallEvolution } from './BallEvolution';
 import { PassiveEvolution } from './PassiveEvolution';
+import { LanguageSwitcher } from './LanguageSwitcher';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
 
 type Tab = 'balls' | 'passives';
 
 export function MainContent() {
+  const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState<Tab>('balls');
   const [ownedBallIds, setOwnedBallIds] = useState<Set<string>>(new Set());
   const [ownedPassiveIds, setOwnedPassiveIds] = useState<Set<string>>(new Set());
@@ -14,9 +17,9 @@ export function MainContent() {
   // Get description based on active tab
   const getDescription = () => {
     if (activeTab === 'balls') {
-      return 'Click on the balls to mark as owned and see available evolutions';
+      return t.ui.description.balls;
     }
-    return 'Click on the passives to mark as owned and see available evolutions';
+    return t.ui.description.passives;
   };
 
   // Reset handler
@@ -40,7 +43,7 @@ export function MainContent() {
             {/* Left: Title + Tabs */}
             <div className="flex items-center gap-4">
               <h1 className="text-2xl font-bold text-white bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent whitespace-nowrap">
-                Ball x Pit Helper
+                {t.ui.title}
               </h1>
 
               {/* Tab Navigation */}
@@ -53,7 +56,7 @@ export function MainContent() {
                       : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
                   }`}
                 >
-                  🎱 Balls
+                  🎱 {t.ui.tabs.balls}
                 </button>
                 <button
                   onClick={() => setActiveTab('passives')}
@@ -63,7 +66,7 @@ export function MainContent() {
                       : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
                   }`}
                 >
-                  ⚡ Passives
+                  ⚡ {t.ui.tabs.passives}
                 </button>
               </div>
             </div>
@@ -77,14 +80,15 @@ export function MainContent() {
 
             {/* Right: Controls */}
             <div className="flex gap-2 items-center">
+              <LanguageSwitcher />
               <div className="px-3 py-2 bg-gray-800 text-white rounded-lg text-sm border border-gray-700 whitespace-nowrap">
-                Owned: <span className="font-semibold text-green-400">{ownedCount}</span>
+                {t.ui.stats.owned}: <span className="font-semibold text-green-400">{ownedCount}</span>
               </div>
               <button
                 onClick={handleReset}
                 className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition-colors shadow-lg text-sm whitespace-nowrap"
               >
-                Reset All
+                {t.ui.buttons.resetAll}
               </button>
             </div>
           </div>

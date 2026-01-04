@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Handle, Position } from 'reactflow';
 import { Ball, BallState } from '@/types/ball';
 import { getNodeStyle } from '@/lib/graph-generator';
+import { useTranslation } from '@/lib/i18n/useTranslation';
 
 interface BallNodeProps {
   data: {
@@ -23,6 +24,7 @@ interface BallNodeProps {
 
 export function BallNode({ data }: BallNodeProps) {
   const { ball, state, missingIngredients, isCandidatePartner, possibleEvolutions, canEvolve, evolutionCount = 0, onSelect, onToggleOwned, onEvolve } = data;
+  const { getBallName, t } = useTranslation();
 
   // Get base style and modify based on ball type and state
   const baseStyle = getNodeStyle(ball, state, isCandidatePartner);
@@ -122,13 +124,13 @@ export function BallNode({ data }: BallNodeProps) {
         </div>
 
         {/* Ball Name */}
-        <div className="font-bold text-sm mb-1">{ball.name}</div>
+        <div className="font-bold text-sm mb-1">{getBallName(ball)}</div>
 
         {/* Evolution Info */}
         <div className="text-xs opacity-80">
-          {evolutionCount > 0 
-            ? `${evolutionCount} evolution${evolutionCount > 1 ? 's' : ''}`
-            : 'No evolutions'}
+          {evolutionCount > 0
+            ? `${evolutionCount} ${evolutionCount > 1 ? t.ui.evolutions.count_other : t.ui.evolutions.count_one}`
+            : t.ui.evolutions.none}
         </div>
 
         {/* Info button */}

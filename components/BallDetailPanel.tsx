@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Ball } from '@/types/ball';
 import { getElementColor, computeMissingIngredients } from '@/lib/graph-generator';
 import { allBalls } from '@/data/balls';
+import { useTranslation } from '@/lib/i18n/useTranslation';
 
 interface BallDetailPanelProps {
   ball: Ball | null;
@@ -15,6 +16,7 @@ interface BallDetailPanelProps {
 export function BallDetailPanel({ ball, onClose, ownedBallIds = new Set() }: BallDetailPanelProps) {
   if (!ball) return null;
 
+  const { getBallName, getBallDescription, getCategoryName, getElementName } = useTranslation();
   const elementColor = getElementColor(ball.element);
 
   // Get all recipes (primary + alternatives)
@@ -62,22 +64,22 @@ export function BallDetailPanel({ ball, onClose, ownedBallIds = new Set() }: Bal
         {/* Header */}
         <div className="flex justify-between items-start mb-6">
           <div>
-            <h2 className="text-2xl font-bold text-white mb-1">{ball.name}</h2>
+            <h2 className="text-2xl font-bold text-white mb-1">{getBallName(ball)}</h2>
             <div className="flex gap-2 text-sm">
               <span
                 className="px-2 py-1 rounded"
                 style={{ backgroundColor: `${elementColor}44`, color: elementColor }}
               >
-                {ball.type}
+                {getCategoryName(ball.type)}
               </span>
               <span
                 className="px-2 py-1 rounded capitalize"
                 style={{ backgroundColor: `${elementColor}22`, color: elementColor }}
               >
-                {ball.element}
+                {getElementName(ball.element)}
               </span>
               <span className="px-2 py-1 rounded bg-gray-700 text-gray-300">
-                {ball.category}
+                {getCategoryName(ball.category)}
               </span>
             </div>
           </div>
@@ -92,7 +94,7 @@ export function BallDetailPanel({ ball, onClose, ownedBallIds = new Set() }: Bal
         {/* Description */}
         <div className="mb-6">
           <h3 className="text-sm font-semibold text-gray-400 mb-2">DESCRIPTION</h3>
-          <p className="text-white text-sm leading-relaxed">{ball.description}</p>
+          <p className="text-white text-sm leading-relaxed">{getBallDescription(ball)}</p>
         </div>
 
         {/* Stats */}
@@ -172,7 +174,7 @@ export function BallDetailPanel({ ball, onClose, ownedBallIds = new Set() }: Bal
                                 </div>
                               </div>
                               <span className="text-xs mt-1 font-medium text-white">
-                                {parent.name}
+                                {getBallName(parent)}
                               </span>
                             </div>
                             {idx < recipeBalls.length - 1 && (
@@ -200,7 +202,7 @@ export function BallDetailPanel({ ball, onClose, ownedBallIds = new Set() }: Bal
                           </div>
                         )}
                         <span className="text-xs mt-1 font-medium text-white">
-                          {ball.name}
+                          {getBallName(ball)}
                         </span>
                       </div>
                     </div>
@@ -280,7 +282,7 @@ export function BallDetailPanel({ ball, onClose, ownedBallIds = new Set() }: Bal
                                     </div>
                                   )}
                                   <span className="text-xs mt-1 font-medium text-white">
-                                    {ingredient.name}
+                                    {getBallName(ingredient)}
                                   </span>
                                 </div>
                                 {idx < ingredients.length - 1 && (
@@ -307,7 +309,7 @@ export function BallDetailPanel({ ball, onClose, ownedBallIds = new Set() }: Bal
                                 </div>
                               )}
                               <span className="text-xs mt-1 font-medium text-white">
-                                {child.name}
+                                {getBallName(child)}
                               </span>
                             </div>
                           </div>

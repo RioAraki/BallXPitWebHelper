@@ -1,0 +1,41 @@
+{
+  "_meta": {
+    "language": "en",
+    "name": "English"
+  },
+  "ui": {
+    "title": "Ball x Pit Helper",
+    "tabs": {
+      "balls": "Balls",
+      "passives": "Passives"
+    },
+    "description": {
+      "balls": "Click on the balls to mark as owned and see available evolutions",
+      "passives": "Click on the passives to mark as owned and see available evolutions"
+    },
+    "buttons": {
+      "resetAll": "Reset All",
+      "selectAllBase": "Select All Base"
+    },
+    "stats": {
+      "owned": "Owned"
+    },
+    "evolutions": {
+      "count_one": "evolution",
+      "count_other": "evolutions",
+      "none": "No evolutions"
+    },
+    "legend": {
+      "title": "Legend",
+      "ownedBall": "Owned Ball",
+      "ownedPassive": "Owned Passive",
+      "readyToEvolve": "Ready to Evolve (click to evolve)",
+      "candidatePartner": "Candidate Partner (can evolve with owned)",
+      "availableEvolution": "Available Evolution",
+      "completePath": "Complete Path (all ingredients owned)",
+      "partialPath": "Partial Path (missing ingredients)",
+      "clickToToggle": "Click to toggle ownership",
+      "clickForDetails": "Click 'i' for details"
+    }
+  }
+}

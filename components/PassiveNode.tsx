@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { Handle, Position } from 'reactflow';
 import { PassiveNodeData, PassiveState } from '@/types/passive';
+import { useTranslation } from '@/lib/i18n/useTranslation';
 
 interface PassiveNodeProps {
   data: PassiveNodeData;
@@ -11,7 +12,8 @@ interface PassiveNodeProps {
 
 export function PassiveNode({ data }: PassiveNodeProps) {
   const { passive, state, isCandidatePartner, possibleEvolutions, canEvolve, evolutionCount, onSelect, onToggleOwned, onEvolve } = data;
-  
+  const { getPassiveName, t } = useTranslation();
+
   const isBaseBall = passive.type === 'BASE';
   const isOwned = state === PassiveState.OWNED;
 
@@ -114,14 +116,14 @@ export function PassiveNode({ data }: PassiveNodeProps) {
 
       {/* Passive Name */}
       <div className="text-xs text-center font-medium text-white truncate w-full px-1">
-        {passive.name}
+        {getPassiveName(passive)}
       </div>
 
       {/* Evolution count or no evolutions */}
       <div className="text-xs text-gray-400 mt-1 flex items-center gap-1">
-        {evolutionCount !== undefined && evolutionCount > 0 
-          ? `${evolutionCount} evolution${evolutionCount > 1 ? 's' : ''}`
-          : 'No evolutions'}
+        {evolutionCount !== undefined && evolutionCount > 0
+          ? `${evolutionCount} ${evolutionCount > 1 ? t.ui.evolutions.count_other : t.ui.evolutions.count_one}`
+          : t.ui.evolutions.none}
         <button
           onClick={(e) => {
             e.stopPropagation();

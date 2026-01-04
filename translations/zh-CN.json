@@ -1,0 +1,442 @@
+{
+  "_meta": {
+    "language": "zh-CN",
+    "name": "简体中文",
+    "status": "draft",
+    "notes": "✅ = Verified from official sources | ⚠️ = Educated guess - needs verification"
+  },
+  "ui": {
+    "title": "Ball x Pit 助手",
+    "tabs": {
+      "balls": "弹珠",
+      "passives": "被动物品"
+    },
+    "description": {
+      "balls": "点击弹珠标记为已拥有，查看可用的进化路径",
+      "passives": "点击被动物品标记为已拥有，查看可用的进化路径"
+    },
+    "buttons": {
+      "resetAll": "重置全部",
+      "selectAllBase": "选择所有基础"
+    },
+    "stats": {
+      "owned": "已拥有"
+    },
+    "evolutions": {
+      "count_one": "次进化",
+      "count_other": "次进化",
+      "none": "无进化"
+    },
+    "legend": {
+      "title": "图例",
+      "ownedBall": "已拥有弹珠",
+      "ownedPassive": "已拥有被动物品",
+      "readyToEvolve": "可立即进化（点击进化）",
+      "candidatePartner": "候选组合（可与已拥有物品进化）",
+      "availableEvolution": "可用进化",
+      "completePath": "完整路径（所有材料已拥有）",
+      "partialPath": "部分路径（缺少材料）",
+      "clickToToggle": "点击切换拥有状态",
+      "clickForDetails": "点击 'i' 查看详情"
+    }
+  },
+  "categories": {
+    "BASE": "基础",
+    "EVOLVED": "进化",
+    "DAMAGE": "伤害",
+    "STATUS": "状态",
+    "UTILITY": "功能",
+    "SPECIAL": "特殊"
+  },
+  "elements": {
+    "fire": "火",
+    "ice": "冰",
+    "lightning": "闪电",
+    "blood": "血",
+    "poison": "毒",
+    "dark": "暗",
+    "light": "光",
+    "spirit": "灵",
+    "metal": "金属",
+    "demon": "恶魔",
+    "laser": "激光",
+    "earth": "土",
+    "wind": "风",
+    "charm": "魅惑",
+    "creature": "生物",
+    "bio": "生物",
+    "shadow": "影",
+    "rage": "狂暴",
+    "void": "虚空",
+    "explosive": "爆炸",
+    "twilight": "暮光",
+    "frost-fire": "霜火",
+    "parasite": "寄生",
+    "nuclear": "核",
+    "nature": "自然"
+  },
+  "balls": {
+    "bleed": {
+      "name": "流血",
+      "description": "施加2层流血。受到流血的敌人被弹珠击中时受到每层1点伤害（最多8层）",
+      "verified": "⚠️"
+    },
+    "burn": {
+      "name": "燃烧",
+      "description": "施加2层燃烧。受到燃烧的敌人每秒受到每层1点伤害（最多5层）",
+      "verified": "⚠️"
+    },
+    "freeze": {
+      "name": "冰冻",
+      "description": "冰冻敌人0.5秒",
+      "verified": "⚠️"
+    },
+    "ghost": {
+      "name": "幽灵",
+      "description": "穿过敌人",
+      "verified": "⚠️"
+    },
+    "iron": {
+      "name": "黑铁",
+      "description": "造成10-40伤害",
+      "verified": "⚠️"
+    },
+    "lightning": {
+      "name": "闪电",
+      "description": "对敌人施加感电。感电的敌人在受到4次攻击后受到100-200伤害",
+      "verified": "⚠️"
+    },
+    "poison": {
+      "name": "中毒",
+      "description": "施加2层中毒。中毒的敌人每秒受到每层1点伤害（最多5层）",
+      "verified": "⚠️"
+    },
+    "charm": {
+      "name": "魅惑",
+      "description": "每次命中有2%几率魅惑敌人，效果持续9秒",
+      "verified": "⚠️"
+    },
+    "dark": {
+      "name": "黑暗",
+      "description": "对敌人施加诅咒。被诅咒的敌人在受到8次攻击后受到200-300伤害",
+      "verified": "⚠️"
+    },
+    "wind": {
+      "name": "风",
+      "description": "使敌人减速50%，效果持续4秒",
+      "verified": "⚠️"
+    },
+    "light": {
+      "name": "光明",
+      "description": "使敌人致盲，效果持续2.5秒",
+      "verified": "⚠️"
+    },
+    "laser-h": {
+      "name": "激光（水平）",
+      "description": "对同一行的所有敌人造成15-25伤害",
+      "verified": "⚠️"
+    },
+    "laser-v": {
+      "name": "激光（垂直）",
+      "description": "对同一列的所有敌人造成15-25伤害",
+      "verified": "⚠️"
+    },
+    "earthquake": {
+      "name": "地震",
+      "description": "对场上所有敌人造成1-20伤害",
+      "verified": "⚠️"
+    },
+    "brood-mother": {
+      "name": "育母",
+      "description": "每次命中敌人时生成1只蜘蛛。蜘蛛将会对随机敌人发起攻击",
+      "verified": "⚠️"
+    },
+    "cell": {
+      "name": "细胞",
+      "description": "每次命中敌人时分裂出1-2颗迷你细胞弹珠",
+      "verified": "⚠️"
+    },
+    "vampire": {
+      "name": "吸血鬼",
+      "description": "每次命中敌人时有30%几率窃取1点生命值",
+      "verified": "⚠️"
+    },
+    "egg-sac": {
+      "name": "巢囊",
+      "description": "命中敌人时分裂出1颗巢囊",
+      "verified": "✅"
+    },
+    "assassin": {
+      "name": "刺客",
+      "description": "从正面穿过敌人,但是不会穿过敌人的后背。背刺造成30%额外伤害。",
+      "verified": "✅"
+    },
+    "berserk": {
+      "name": "狂暴",
+      "description": "每次命中有30%几率使敌人狂暴,效果持续6秒。",
+      "verified": "✅"
+    },
+    "blizzard": {
+      "name": "暴风雪",
+      "description": "冰冻2格范围内的所有敌人并造成1-50伤害",
+      "verified": "✅"
+    },
+    "flash": {
+      "name": "闪光",
+      "description": "命中一名敌人后对场上的所有敌人造成1-3伤害并使其致盲",
+      "verified": "✅"
+    },
+    "flicker": {
+      "name": "闪烁",
+      "description": "每隔1.4秒对场上的所有敌人造成1-7伤害。",
+      "verified": "✅"
+    },
+    "frost-ray": {
+      "name": "冰冻射线",
+      "description": "命中敌人时发射一道冰冻射线,射线将对路径上的所有敌人造成20-50伤害",
+      "verified": "✅"
+    },
+    "frostflame": {
+      "name": "冰冻之炎",
+      "description": "命中时施加1层霜燃,效果持续20秒(最高4层)。",
+      "verified": "✅"
+    },
+    "glacier": {
+      "name": "冰川",
+      "description": "持续释放冰刺,对触碰冰刺的敌人造成15-30伤害,并且施加冰冻",
+      "verified": "✅"
+    },
+    "hemorrhage": {
+      "name": "血流如注",
+      "description": "施加3层流血。如果敌人身上的流血效果有12层或以上,击中敌人时将消耗所有流血层数",
+      "verified": "✅"
+    },
+    "holy-laser": {
+      "name": "神圣激光",
+      "description": "对同一行同一列的所有敌人造成24-36伤害。",
+      "verified": "✅"
+    },
+    "inferno": {
+      "name": "炼狱",
+      "description": "每秒对2格范围内的敌人施加1层燃烧。",
+      "verified": "✅"
+    },
+    "laser-beam": {
+      "name": "激光束",
+      "description": "命中时发射一道激光束,造成30-42伤害并且使敌人致盲",
+      "verified": "✅"
+    },
+    "leech": {
+      "name": "吸血水蛭",
+      "description": "命中时对敌人施加至多1层吸血水蛭,吸血水蛭每秒施加2层流血",
+      "verified": "✅"
+    },
+    "lightning-rod": {
+      "name": "避雷针",
+      "description": "命中时在敌人身上放置1个避雷针。被插上避雷针的敌人将每隔3.0秒被闪电击中",
+      "verified": "✅"
+    },
+    "lovesick": {
+      "name": "热恋",
+      "description": "对命中的敌人施加热恋,效果持续20秒。陷入热恋的单位在发起攻击时将有50%几率转而为你恢复5点生命值。",
+      "verified": "✅"
+    },
+    "maggot": {
+      "name": "蛆虫",
+      "description": "命中时将使敌人被蛆虫缠身。这些敌人死亡时将会分裂出1-2颗迷你弹珠",
+      "verified": "✅"
+    },
+    "magma": {
+      "name": "熔岩",
+      "description": "持续释放岩浆池。经过岩浆池的敌人将承受15-30伤害以及1层燃烧",
+      "verified": "✅"
+    },
+    "mosquito-swarm": {
+      "name": "蚊群",
+      "description": "分裂出3-6只蚊子。蚊子将会对随机敌人发起攻击，并造成80-120伤害。",
+      "verified": "✅"
+    },
+    "poison-cloud": {
+      "name": "毒云",
+      "description": "穿过敌人,并且对其周遭3格范围内的所有敌人施加2层中毒。",
+      "verified": "✅"
+    },
+    "proliferation": {
+      "name": "蔓延",
+      "description": "施加1层蔓延。堆叠3层后,消耗所有层数并对3X3格范围内的所有敌人造成150-200伤害。",
+      "verified": "✅"
+    },
+    "specter": {
+      "name": "恶灵",
+      "description": "命中时施加诅咒。被诅咒的敌人在受到5次攻击后将承受100-200伤害。",
+      "verified": "✅"
+    },
+    "radiation-beam": {
+      "name": "辐射光束",
+      "description": "命中时释放一道辐射光束,造成24-48伤害并施加1层核辐射（最高5层)",
+      "verified": "✅"
+    },
+    "sacrifice": {
+      "name": "活祭",
+      "description": "命中时施加4层流血(最高15层)以及诅咒。",
+      "verified": "✅"
+    },
+    "sandstorm": {
+      "name": "沙尘暴",
+      "description": "穿过敌人。此弹珠受到沙暴笼罩,每秒造成10-20伤害并使敌人致盲",
+      "verified": "✅"
+    },
+    "shotgun": {
+      "name": "霰弹枪",
+      "description": "每次命中墙壁时发射3-7颗迷你黑铁弹珠。",
+      "verified": "✅"
+    },
+    "soul-leech": {
+      "name": "吸魂妖",
+      "description": "穿过敌人,有30%几率窃取1生命值并且使敌人的攻击伤害降低20%。",
+      "verified": "✅"
+    },
+    "storm": {
+      "name": "风暴",
+      "description": "释放闪电打击周围的敌人,每秒造成1-40伤害。",
+      "verified": "✅"
+    },
+    "swamp": {
+      "name": "沼泽",
+      "description": "持续释放焦油池。焦油池将对经过的敌人造成15-30伤害,持续7秒的50%减速",
+      "verified": "✅"
+    },
+    "virus": {
+      "name": "病毒",
+      "description": "命中时施加1层瘟疫(最高8层)。瘟疫持续6秒。每层瘟疫每秒造成3-6伤害",
+      "verified": "✅"
+    },
+    "swollen-egg": {
+      "name": "肿胀巢囊",
+      "description": "命中敌人时分裂出2-3颗巢囊。每次发射后需要等待3秒冷却时间。",
+      "verified": "✅"
+    },
+    "wraith": {
+      "name": "怨灵",
+      "description": "冰冻经过的敌人,效果持续0.8秒",
+      "verified": "✅"
+    },
+    "bomb": {
+      "name": "炸弹",
+      "description": "命中敌人时爆炸,对周遭敌人造成150-300伤害。",
+      "verified": "✅"
+    },
+    "nuclear-bomb": {
+      "name": "核弹",
+      "description": "命中敌人时爆炸,对周遭敌人造成300-500伤害,并且对场上所有人施加1层核辐射",
+      "verified": "✅"
+    },
+    "sun": {
+      "name": "太阳",
+      "description": "使视野中的所有敌人致盲,并且每秒施加1层燃烧(最高5层)。",
+      "verified": "✅"
+    },
+    "black-hole": {
+      "name": "黑洞",
+      "description": "立即击杀命中的第一个敌人(非Boss），但是之后将自毁。",
+      "verified": "✅"
+    },
+    "succubus": {
+      "name": "魅魔",
+      "description": "每次命中时有4%几率魅惑敌人,效果持续9秒。命中被魅惑的敌人时恢复1点生命值。",
+      "verified": "✅"
+    },
+    "nightmare": {
+      "name": "梦淫妖",
+      "description": "每次命中时有4%几率魅惑敌人,效果持续9秒。被魅惑的敌人将诅咒周遭的敌人。",
+      "verified": "✅"
+    },
+    "satan": {
+      "name": "撒旦",
+      "description": "存在于场上时,每秒对所有敌人施加1层燃烧(最高5层)",
+      "verified": "✅"
+    },
+    "mosquito-king": {
+      "name": "蚊王",
+      "description": "每次命中敌人时生成1只蚊子。蚊子将会对随机敌人发起攻击",
+      "verified": "✅"
+    },
+    "spider-queen": {
+      "name": "蜘蛛女王",
+      "description": "每次命中敌人时有25%几率创造1颗巢囊",
+      "verified": "✅"
+    },
+    "vampire-lord": {
+      "name": "吸血鬼领主",
+      "description": "每次命中时施加3层流血。如果敌人身上有10层流血效果或以上,击中敌人时将消耗所有流血层数，并为你恢复1点生命值。",
+      "verified": "✅"
+    },
+    "nosferatu": {
+      "name": "诺斯费拉图",
+      "description": "每次反弹时生成1只吸血蝙蝠。吸血蝙蝠将飞向一名随机敌人,命中时造成132-176伤害",
+      "verified": "✅"
+    }
+  },
+  "passives": {
+    "baby-rattle": {
+      "name": "婴儿拨浪鼓",
+      "description": "待补充",
+      "verified": "⚠️"
+    },
+    "war-horn": {
+      "name": "战争号角",
+      "description": "待补充",
+      "verified": "⚠️"
+    },
+    "reachers-spear": {
+      "name": "长枪",
+      "description": "待补充",
+      "verified": "⚠️"
+    },
+    "deadeyes-amulet": {
+      "name": "死眼护符",
+      "description": "待补充",
+      "verified": "⚠️"
+    },
+    "horn-of-plenty": {
+      "name": "丰饶之角",
+      "description": "每次创造迷你弹珠时，生成0-1颗额外迷你弹珠",
+      "verified": "✅"
+    },
+    "elegant-spear": {
+      "name": "优雅刺枪",
+      "description": "暴击有5%几率立即击杀敌人",
+      "verified": "✅"
+    },
+    "putrid-body": {
+      "name": "腐臭之躯",
+      "description": "当你触碰敌人时,它们有50%几率立即死亡。",
+      "verified": "✅"
+    },
+    "phantom-dress": {
+      "name": "幻影华服",
+      "description": "弹珠能够穿过敌人,直到命中屏幕上方的尽头区域。弹珠穿过敌人时将额外造成50%伤害。",
+      "verified": "✅"
+    },
+    "soul-reaper": {
+      "name": "灵魂收割者",
+      "description": "每次击杀敌人为你恢复30%,并且允许治疗效果超出最大生命值上限(1效率)。",
+      "verified": "✅"
+    },
+    "executioner-mask": {
+      "name": "处刑者面具",
+      "description": "首次发现你(头顶显示惊叹号)时,敌人有10%几率立即死亡。",
+      "verified": "✅"
+    },
+    "holy-wings": {
+      "name": "圣礼者之翼",
+      "description": "弹珠移动速度加快40%,你的移动速度加快20%。无视场地上的环境危险影响。",
+      "verified": "✅"
+    },
+    "bullseye-cross": {
+      "name": "靶眼十字架",
+      "description": "暴击率提高至60%",
+      "verified": "✅"
+    }
+  }
+}

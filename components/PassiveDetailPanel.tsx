@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { Passive } from '@/types/passive';
 import { allPassives } from '@/data/passives';
+import { useTranslation } from '@/lib/i18n/useTranslation';
 
 interface PassiveDetailPanelProps {
   passive: Passive | null;
@@ -25,6 +26,8 @@ function getAllRecipes(passive: Passive): string[][] {
 
 export function PassiveDetailPanel({ passive, onClose, ownedPassiveIds = new Set() }: PassiveDetailPanelProps) {
   if (!passive) return null;
+
+  const { getPassiveName, getPassiveDescription, getCategoryName } = useTranslation();
 
   // Get all recipes (primary + alternatives)
   const allRecipes = getAllRecipes(passive);
@@ -65,10 +68,10 @@ export function PassiveDetailPanel({ passive, onClose, ownedPassiveIds = new Set
         {/* Header */}
         <div className="flex justify-between items-start mb-6">
           <div>
-            <h2 className="text-2xl font-bold text-white mb-1">{passive.name}</h2>
+            <h2 className="text-2xl font-bold text-white mb-1">{getPassiveName(passive)}</h2>
             <div className="flex gap-2 text-sm">
               <span className="px-2 py-1 rounded bg-purple-900/50 text-purple-300">
-                {passive.type}
+                {getCategoryName(passive.type)}
               </span>
             </div>
           </div>
@@ -83,7 +86,7 @@ export function PassiveDetailPanel({ passive, onClose, ownedPassiveIds = new Set
         {/* Description */}
         <div className="mb-6">
           <h3 className="text-sm font-semibold text-gray-400 mb-2">DESCRIPTION</h3>
-          <p className="text-white text-sm leading-relaxed">{passive.description}</p>
+          <p className="text-white text-sm leading-relaxed">{getPassiveDescription(passive)}</p>
         </div>
 
         {/* Requirement */}
@@ -156,7 +159,7 @@ export function PassiveDetailPanel({ passive, onClose, ownedPassiveIds = new Set
                                 </div>
                               </div>
                               <span className="text-xs mt-1 font-medium text-white">
-                                {parent.name}
+                                {getPassiveName(parent)}
                               </span>
                             </div>
                             {idx < recipePassives.length - 1 && (
@@ -184,7 +187,7 @@ export function PassiveDetailPanel({ passive, onClose, ownedPassiveIds = new Set
                           </div>
                         )}
                         <span className="text-xs mt-1 font-medium text-white">
-                          {passive.name}
+                          {getPassiveName(passive)}
                         </span>
                       </div>
                     </div>
@@ -266,7 +269,7 @@ export function PassiveDetailPanel({ passive, onClose, ownedPassiveIds = new Set
                                     </div>
                                   )}
                                   <span className="text-xs mt-1 font-medium text-white">
-                                    {ingredient.name}
+                                    {getPassiveName(ingredient)}
                                   </span>
                                 </div>
                                 {idx < ingredients.length - 1 && (
@@ -293,7 +296,7 @@ export function PassiveDetailPanel({ passive, onClose, ownedPassiveIds = new Set
                                 </div>
                               )}
                               <span className="text-xs mt-1 font-medium text-white">
-                                {child.name}
+                                {getPassiveName(child)}
                               </span>
                             </div>
                           </div>

@@ -19,6 +19,7 @@ import {
 } from '@/lib/passive-graph-generator';
 import { PassiveNode } from './PassiveNode';
 import { PassiveDetailPanel } from './PassiveDetailPanel';
+import { useTranslation } from '@/lib/i18n/useTranslation';
 
 const nodeTypes = {
   passiveNode: PassiveNode,
@@ -30,6 +31,7 @@ interface PassiveEvolutionProps {
 }
 
 export function PassiveEvolution({ ownedPassiveIds, setOwnedPassiveIds }: PassiveEvolutionProps) {
+  const { t } = useTranslation();
   const [selectedPassive, setSelectedPassive] = useState<Passive | null>(null);
 
   // Toggle passive ownership
@@ -140,40 +142,40 @@ export function PassiveEvolution({ ownedPassiveIds, setOwnedPassiveIds }: Passiv
           <div className="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center">
             <span className="text-purple-400 text-lg">ℹ️</span>
           </div>
-          <h3 className="text-base font-bold text-white">Legend</h3>
+          <h3 className="text-base font-bold text-white">{t.ui.legend.title}</h3>
         </div>
         <div className="space-y-2.5 text-sm text-gray-200">
           <div className="flex items-center gap-3">
             <div className="w-5 h-5 rounded bg-green-500 flex items-center justify-center text-white text-xs font-bold shadow-lg">✓</div>
-            <span className="font-medium">Owned Passive</span>
+            <span className="font-medium">{t.ui.legend.ownedPassive}</span>
           </div>
           <div className="flex items-center gap-3">
             <div className="w-5 h-5 rounded bg-green-500 flex items-center justify-center text-white text-xs font-bold shadow-lg animate-bounce">⬆</div>
-            <span className="font-medium">Ready to Evolve (click to evolve)</span>
+            <span className="font-medium">{t.ui.legend.readyToEvolve}</span>
           </div>
           <div className="flex items-center gap-3">
             <div className="w-5 h-5 rounded bg-gray-700 border-2 candidate-partner-glow shadow-lg"></div>
-            <span className="font-medium">Candidate Partner (can evolve with owned)</span>
+            <span className="font-medium">{t.ui.legend.candidatePartner}</span>
           </div>
           <div className="flex items-center gap-3">
             <div className="w-5 h-5 rounded bg-purple-500/30 border-2 border-purple-400 shadow-lg"></div>
-            <span className="font-medium">Available Evolution</span>
+            <span className="font-medium">{t.ui.legend.availableEvolution}</span>
           </div>
           <div className="flex items-center gap-3">
             <div className="w-10 h-1 bg-green-400 rounded shadow-lg"></div>
-            <span className="font-medium">Complete Path (all ingredients owned)</span>
+            <span className="font-medium">{t.ui.legend.completePath}</span>
           </div>
           <div className="flex items-center gap-3">
             <div className="w-10 h-1 border-t-2 border-dashed border-gray-300 rounded"></div>
-            <span className="font-medium">Partial Path (missing ingredients)</span>
+            <span className="font-medium">{t.ui.legend.partialPath}</span>
           </div>
         </div>
         <div className="mt-4 pt-4 border-t-2 border-gray-700/50 text-sm text-gray-300 space-y-1">
           <p className="flex items-center gap-2">
-            <span className="text-purple-400">→</span> Click passives to toggle ownership
+            <span className="text-purple-400">→</span> {t.ui.legend.clickToToggle}
           </p>
           <p className="flex items-center gap-2">
-            <span className="text-purple-400">→</span> Click 'i' for details
+            <span className="text-purple-400">→</span> {t.ui.legend.clickForDetails}
           </p>
         </div>
       </div>
