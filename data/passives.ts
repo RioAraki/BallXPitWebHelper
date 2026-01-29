@@ -385,6 +385,13 @@ export const nonEvolvableBasePassives: Passive[] = [
     type: PassiveType.BASE,
     description: 'Each time a ball hits a wall, it deals 30% extra damage on the next hit',
     imageUrl: getPassiveImageUrl('wagon-wheel')
+  },
+  {
+    id: 'iron-onesie',
+    name: 'Iron Onesie',
+    type: PassiveType.BASE,
+    description: 'Unlocked by default. Provides enhanced protection',
+    imageUrl: getPassiveImageUrl('iron-onesie')
   }
 ];
 
@@ -455,6 +462,22 @@ export const evolvedPassives: Passive[] = [
     description: 'Increase critical hit chance to 60%',
     recipe: ['diamond-hilted-dagger', 'sapphire-hilted-dagger', 'ruby-hilted-dagger', 'emerald-hilted-dagger'],
     imageUrl: getPassiveImageUrl('deadeyes-cross')
+  },
+  {
+    id: 'grotesque-artillery',
+    name: 'Grotesque Artillery',
+    type: PassiveType.EVOLVED,
+    description: 'Enhanced turret system with devastating firepower',
+    recipe: ['turret', 'hand-fan'],
+    imageUrl: getPassiveImageUrl('grotesque-artillery')
+  },
+  {
+    id: 'deadeyes-impaler',
+    name: "Deadeye's Impaler",
+    type: PassiveType.EVOLVED,
+    description: 'Combines precision and lethality for devastating critical hits',
+    recipe: ['gracious-impaler', 'deadeyes-cross'],
+    imageUrl: getPassiveImageUrl('deadeyes-impaler')
   }
 ];
 

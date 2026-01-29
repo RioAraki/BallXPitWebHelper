@@ -77,9 +77,9 @@
   },
   "balls": {
     "bleed": {
-      "name": "流血",
+      "name": "放血",
       "description": "施加2层流血。受到流血的敌人被弹珠击中时受到每层1点伤害（最多8层）",
-      "verified": "⚠️"
+      "verified": "✅"
     },
     "burn": {
       "name": "燃烧",
@@ -122,9 +122,9 @@
       "verified": "⚠️"
     },
     "wind": {
-      "name": "风",
+      "name": "疾风",
       "description": "使敌人减速50%，效果持续4秒",
-      "verified": "⚠️"
+      "verified": "✅"
     },
     "light": {
       "name": "光明",
@@ -191,12 +191,12 @@
       "description": "每隔1.4秒对场上的所有敌人造成1-7伤害。",
       "verified": "✅"
     },
-    "frost-ray": {
+    "freeze-ray": {
       "name": "冰冻射线",
       "description": "命中敌人时发射一道冰冻射线,射线将对路径上的所有敌人造成20-50伤害",
       "verified": "✅"
     },
-    "frostflame": {
+    "frozen-flame": {
       "name": "冰冻之炎",
       "description": "命中时施加1层霜燃,效果持续20秒(最高4层)。",
       "verified": "✅"
@@ -236,7 +236,7 @@
       "description": "命中时在敌人身上放置1个避雷针。被插上避雷针的敌人将每隔3.0秒被闪电击中",
       "verified": "✅"
     },
-    "lovesick": {
+    "lovestruck": {
       "name": "热恋",
       "description": "对命中的敌人施加热恋,效果持续20秒。陷入热恋的单位在发起攻击时将有50%几率转而为你恢复5点生命值。",
       "verified": "✅"
@@ -256,17 +256,17 @@
       "description": "分裂出3-6只蚊子。蚊子将会对随机敌人发起攻击，并造成80-120伤害。",
       "verified": "✅"
     },
-    "poison-cloud": {
+    "noxious": {
       "name": "毒云",
       "description": "穿过敌人,并且对其周遭3格范围内的所有敌人施加2层中毒。",
       "verified": "✅"
     },
-    "proliferation": {
+    "overgrowth": {
       "name": "蔓延",
       "description": "施加1层蔓延。堆叠3层后,消耗所有层数并对3X3格范围内的所有敌人造成150-200伤害。",
       "verified": "✅"
     },
-    "specter": {
+    "phantom": {
       "name": "恶灵",
       "description": "命中时施加诅咒。被诅咒的敌人在受到5次攻击后将承受100-200伤害。",
       "verified": "✅"
@@ -291,7 +291,7 @@
       "description": "每次命中墙壁时发射3-7颗迷你黑铁弹珠。",
       "verified": "✅"
     },
-    "soul-leech": {
+    "soul-sucker": {
       "name": "吸魂妖",
       "description": "穿过敌人,有30%几率窃取1生命值并且使敌人的攻击伤害降低20%。",
       "verified": "✅"
@@ -311,7 +311,7 @@
       "description": "命中时施加1层瘟疫(最高8层)。瘟疫持续6秒。每层瘟疫每秒造成3-6伤害",
       "verified": "✅"
     },
-    "swollen-egg": {
+    "voluptuous-egg-sac": {
       "name": "肿胀巢囊",
       "description": "命中敌人时分裂出2-3颗巢囊。每次发射后需要等待3秒冷却时间。",
       "verified": "✅"
@@ -346,7 +346,7 @@
       "description": "每次命中时有4%几率魅惑敌人,效果持续9秒。命中被魅惑的敌人时恢复1点生命值。",
       "verified": "✅"
     },
-    "nightmare": {
+    "incubus": {
       "name": "梦淫妖",
       "description": "每次命中时有4%几率魅惑敌人,效果持续9秒。被魅惑的敌人将诅咒周遭的敌人。",
       "verified": "✅"
@@ -374,6 +374,46 @@
     "nosferatu": {
       "name": "诺斯费拉图",
       "description": "每次反弹时生成1只吸血蝙蝠。吸血蝙蝠将飞向一名随机敌人,命中时造成132-176伤害",
+      "verified": "✅"
+    },
+    "stone": {
+      "name": "岩石",
+      "description": "默认解锁。坚实的石球造成稳定伤害",
+      "verified": "✅"
+    },
+    "landslide": {
+      "name": "山崩",
+      "description": "创造毁灭性的山崩效果对敌人造成伤害",
+      "verified": "✅"
+    },
+    "steel": {
+      "name": "钢铁",
+      "description": "增强的金属球具有强化的伤害属性",
+      "verified": "✅"
+    },
+    "catapult": {
+      "name": "投石机",
+      "description": "以投石机的力量向敌人发射弹丸",
+      "verified": "✅"
+    },
+    "brimstone": {
+      "name": "硫磺",
+      "description": "燃烧着地狱之火的炼狱之石",
+      "verified": "✅"
+    },
+    "banished-flame": {
+      "name": "放逐之焰",
+      "description": "吞噬敌人的暗黑火焰",
+      "verified": "✅"
+    },
+    "fireworks": {
+      "name": "烟花",
+      "description": "爆炸成壮观的烟花表演",
+      "verified": "✅"
+    },
+    "laser-cutter": {
+      "name": "激光切割器",
+      "description": "精准切割敌人的强大激光",
       "verified": "✅"
     }
   },
@@ -436,6 +476,21 @@
     "bullseye-cross": {
       "name": "靶眼十字架",
       "description": "暴击率提高至60%",
+      "verified": "✅"
+    },
+    "iron-onesie": {
+      "name": "黑铁连体衣",
+      "description": "默认解锁。提供强化保护",
+      "verified": "✅"
+    },
+    "grotesque-artillery": {
+      "name": "诡异炮台",
+      "description": "具有毁灭性火力的强化炮台系统",
+      "verified": "✅"
+    },
+    "deadeyes-impaler": {
+      "name": "死眼刺客",
+      "description": "结合精准与致命以实现毁灭性暴击",
       "verified": "✅"
     }
   }

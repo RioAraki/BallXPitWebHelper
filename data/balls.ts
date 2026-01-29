@@ -199,6 +199,15 @@ export const baseBalls: Ball[] = [
     description: 'Explodes into multiple projectiles',
     element: 'creature',
   imageUrl: getBallImageUrl('egg-sac'),
+  },
+  {
+    id: 'stone',
+    name: 'Stone',
+    type: BallType.BASE,
+    category: BallCategory.DAMAGE,
+    description: 'Heavy stone ball with solid damage',
+    element: 'earth',
+  imageUrl: getBallImageUrl('stone'),
   }
 ];
 
@@ -343,6 +352,7 @@ export const evolvedBalls: Ball[] = [
     category: BallCategory.DAMAGE,
     description: 'Releases glacial spikes over time that deal 15-30 damage to enemies that touch them and freeze them for 2.0 seconds',
     recipe: ['freeze', 'earthquake'],
+    alternativeRecipes: [['stone', 'freeze']],
     element: 'ice',
     imageUrl: getBallImageUrl('glacier'),
     stats: {
@@ -622,6 +632,7 @@ export const evolvedBalls: Ball[] = [
     category: BallCategory.DAMAGE,
     description: 'Goes through enemies and is surrounded by a raging storm dealing 10-20 damage per second and blinding nearby enemies for 3 seconds',
     recipe: ['earthquake', 'wind'],
+    alternativeRecipes: [['stone', 'wind']],
     element: 'earth',
     imageUrl: getBallImageUrl('sandstorm'),
     stats: {
@@ -818,6 +829,78 @@ export const evolvedBalls: Ball[] = [
     stats: {
       damage: '132-176'
     }
+  },
+  {
+    id: 'landslide',
+    name: 'Landslide',
+    type: BallType.EVOLVED,
+    category: BallCategory.DAMAGE,
+    description: 'Creates a devastating landslide effect that damages enemies',
+    recipe: ['stone', 'earthquake'],
+    element: 'earth',
+    imageUrl: getBallImageUrl('landslide')
+  },
+  {
+    id: 'steel',
+    name: 'Steel',
+    type: BallType.EVOLVED,
+    category: BallCategory.DAMAGE,
+    description: 'Reinforced metal ball with enhanced damage properties',
+    recipe: ['stone', 'iron'],
+    element: 'metal',
+    imageUrl: getBallImageUrl('steel')
+  },
+  {
+    id: 'catapult',
+    name: 'Catapult',
+    type: BallType.EVOLVED,
+    category: BallCategory.SPECIAL,
+    description: 'Launches projectiles at enemies with catapult force',
+    recipe: ['stone', 'egg-sac'],
+    element: 'earth',
+    imageUrl: getBallImageUrl('catapult')
+  },
+  {
+    id: 'brimstone',
+    name: 'Brimstone',
+    type: BallType.EVOLVED,
+    category: BallCategory.STATUS,
+    description: 'Infernal stone that burns with hellfire',
+    recipe: ['stone', 'burn'],
+    alternativeRecipes: [['poison', 'burn']],
+    element: 'fire',
+    imageUrl: getBallImageUrl('brimstone')
+  },
+  {
+    id: 'banished-flame',
+    name: 'Banished Flame',
+    type: BallType.EVOLVED,
+    category: BallCategory.STATUS,
+    description: 'Dark flames that consume enemies',
+    recipe: ['dark', 'burn'],
+    element: 'dark',
+    imageUrl: getBallImageUrl('banished-flame')
+  },
+  {
+    id: 'fireworks',
+    name: 'Fireworks',
+    type: BallType.EVOLVED,
+    category: BallCategory.SPECIAL,
+    description: 'Explodes into a spectacular firework display',
+    recipe: ['egg-sac', 'burn'],
+    element: 'fire',
+    imageUrl: getBallImageUrl('fireworks')
+  },
+  {
+    id: 'laser-cutter',
+    name: 'Laser Cutter',
+    type: BallType.EVOLVED,
+    category: BallCategory.DAMAGE,
+    description: 'Powerful laser that cuts through enemies with precision',
+    recipe: ['laser-h', 'steel'],
+    alternativeRecipes: [['laser-v', 'steel']],
+    element: 'laser',
+    imageUrl: getBallImageUrl('laser-cutter')
   }
 ];
 
